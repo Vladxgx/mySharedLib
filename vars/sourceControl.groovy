@@ -9,3 +9,7 @@ def gitClone(){
 def gitPush(){
     echo "git push"
 }
+
+def gitStatus(){
+    echo "git status"
+}

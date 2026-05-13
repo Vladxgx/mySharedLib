@@ -9,3 +9,11 @@ def imagePull(){
 def imageBuild(){
     echo "Docker building"  
 }
+
+def containerRun() {
+    echo "Running Docker container"
+}
+
+def containerStop() {
+    echo "Stopping Docker container"
+}
