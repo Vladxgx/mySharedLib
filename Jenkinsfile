@@ -36,10 +36,9 @@ pipeline {
                 stage('sonarqube') {
                     steps {
                         script {
-                            tests.sonarCreateProject(env.JOB_NAME)
-                            codequality.sonarLocalScan()
+                            codeQuality.sonarCreateProject(env.JOB_NAME)
+                            codeQuality.sonarLocalScan()
                         }
-                        sh "exit 0" // Or exit 1 to breake the pipeline
                     }
                 }
             }
