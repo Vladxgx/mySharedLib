@@ -1,15 +1,23 @@
 def gitPull(){
-    echo"git pull"
+    sh 'git fetch --all --prune && git status --short --branch'
 }
 
-def gitClone(){
-    echo "git clone"
+def gitClone(String repoUrl = '', String directory = '') {
+    if (!repoUrl?.trim()) {
+        error 'gitClone requires a repository URL'
+    }
+
+    if (directory?.trim()) {
+        sh "git clone '${repoUrl}' '${directory}'"
+    } else {
+        sh "git clone '${repoUrl}'"
+    }
 }
 
 def gitPush(){
-    echo "git push"
+    sh 'git push'
 }
 
 def gitStatus(){
-    echo "git status"
+    sh 'git status --short --branch'
 }
