@@ -1,3 +1,14 @@
+def flake8Test() {
+    sh '''
+        if ls *.py >/dev/null 2>&1; then
+            python3 -m pip install --quiet --target .tools/flake8 flake8
+            PYTHONPATH=.tools/flake8 python3 -m flake8 . --select=E9,F63,F7,F82
+        else
+            echo "No Python files found, skipping Flake8"
+        fi
+    '''
+}
+
 def trivyTest() {
     def image = env.IMAGE_NAME ?: "vladxgx/hello-newapp"
     def tag = env.IMAGE_TAG ?: env.BUILD_NUMBER ?: "local"
