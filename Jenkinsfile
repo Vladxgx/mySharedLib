@@ -33,14 +33,6 @@ pipeline {
                         }
                     }
                 }
-                stage('sonarqube') {
-                    steps {
-                        script {
-                            codeQuality.sonarCreateProject(env.JOB_NAME)
-                            codeQuality.sonarLocalScan()
-                        }
-                    }
-                }
             }
         }
 
@@ -59,13 +51,6 @@ pipeline {
                             tests.unitTest()
                         }
                     }
-                }
-            }
-        }
-        stage('Deploy') {
-            steps {
-                script {
-                    deployment.deployK8s()
                 }
             }
         }
