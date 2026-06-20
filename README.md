@@ -9,7 +9,7 @@ Current library files:
 
 - `vars/sourceControl.groovy` - simple Git status/clone/push helpers.
 - `vars/dockering.groovy` - Docker build, push, pull, run, and stop helpers.
-- `vars/tests.groovy` - Python compile check, Bandit scan, and Trivy image scan.
+- `vars/tests.groovy` - Python compile check, Bandit scan, Trivy base image scan, and Trivy app image scan.
 
 In Jenkins this library is configured as `mySharedLib`, then used in the app
 Jenkinsfile with:
